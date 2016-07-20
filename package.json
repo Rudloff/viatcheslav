@@ -1,6 +1,6 @@
 {
 	"name": "viatcheslav",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Open-source client for Molotov.tv",
 	"main": "main.js",
 	"scripts": {
