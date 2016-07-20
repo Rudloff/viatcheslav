@@ -14,7 +14,12 @@ function createWindow() {
         app_build: 1,
         app_version_name: app.getVersion(),
         type: 'desktop',
-        os: os.type()
+        os: process.platform,
+        os_version: os.type(),
+        manufacturer: os.type(),
+        model: os.type(),
+        brand: os.type(),
+        serial: 'foo'
     };
     session.defaultSession.webRequest.onBeforeSendHeaders(function (details, callback) {
         details.requestHeaders['X-Molotov-Agent'] = JSON.stringify(molotovAgent);
