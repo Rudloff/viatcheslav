@@ -1,0 +1,33 @@
+{
+	"name": "viatcheslav",
+	"version": "0.1.0",
+	"description": "Open-source client for Molotov.tv",
+	"main": "main.js",
+	"scripts": {
+		"start": "electron ."
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Rudloff/viatcheslav.git"
+	},
+	"keywords": [
+		"Electron",
+		"Molotov.tv",
+		"television"
+	],
+	"author": {
+		"name": "Pierre Rudloff",
+		"email": "contact@rudloff.pro",
+		"url": "https://www.rudloff.pro/"
+	},
+	"license": "GPL-3.0",
+	"bugs": {
+		"url": "https://github.com/Rudloff/viatcheslav/issues"
+	},
+	"homepage": "https://github.com/Rudloff/viatcheslav",
+	"devDependencies": {
+		"electron-prebuilt": "~1.2.0",
+		"grunt": "~1.0.1",
+		"grunt-jslint": "~1.1.14"
+	}
+}
