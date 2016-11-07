@@ -17,7 +17,7 @@ npm start
 ### Video playback
 
 In order to play DRM-protected videos, we need the Winedevine plugin but because it is not FOSS we can't include it in the repository.
-The Electron documentation has [an article that explain how to get the Widevine plugin](https://github.com/electron/electron/blob/master/docs/tutorial/using-widevine-cdm-plugin.md).
+The Electron documentation has [an article that explains how to get the Widevine plugin](https://github.com/electron/electron/blob/master/docs/tutorial/using-widevine-cdm-plugin.md).
 
 You then need to run Viatcheslav like this:
 
