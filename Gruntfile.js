@@ -12,8 +12,23 @@ module.exports = function (grunt) {
             main: {
                 src: 'main.js'
             }
+        },
+        jsonlint: {
+            manifests: {
+                src: '*.json',
+                options: {
+                    format: true
+                }
+            }
+        },
+        fixpack: {
+            package: {
+                src: 'package.json'
+            }
         }
     });
 
-    grunt.registerTask('lint', ['jslint']);
+    grunt.loadNpmTasks('grunt-jsonlint');
+    grunt.loadNpmTasks('grunt-fixpack');
+    grunt.registerTask('lint', ['jslint', 'fixpack', 'jsonlint']);
 };

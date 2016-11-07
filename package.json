@@ -1,35 +1,37 @@
 {
-	"name": "viatcheslav",
-	"version": "0.1.1",
-	"description": "Open-source client for Molotov.tv",
-	"main": "main.js",
-	"scripts": {
-		"start": "electron ."
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/Rudloff/viatcheslav.git"
-	},
-	"keywords": [
-		"Electron",
-		"Molotov.tv",
-		"television"
-	],
-	"author": {
-		"name": "Pierre Rudloff",
-		"email": "contact@rudloff.pro",
-		"url": "https://www.rudloff.pro/"
-	},
-	"license": "GPL-3.0",
-	"bugs": {
-		"url": "https://github.com/Rudloff/viatcheslav/issues"
-	},
-	"homepage": "https://github.com/Rudloff/viatcheslav",
-	"dependencies": {
-		"electron-prebuilt": "~1.4.5"
-	},
-	"devDependencies": {
-		"grunt": "~1.0.1",
-		"grunt-jslint": "~1.1.14"
-	}
+  "name": "viatcheslav",
+  "description": "Open-source client for Molotov.tv",
+  "version": "0.1.1",
+  "author": {
+    "name": "Pierre Rudloff",
+    "email": "contact@rudloff.pro",
+    "url": "https://www.rudloff.pro/"
+  },
+  "bugs": {
+    "url": "https://github.com/Rudloff/viatcheslav/issues"
+  },
+  "dependencies": {
+    "electron-prebuilt": "~1.4.5"
+  },
+  "devDependencies": {
+    "grunt": "~1.0.1",
+    "grunt-fixpack": "~0.1.0",
+    "grunt-jslint": "~1.1.14",
+    "grunt-jsonlint": "~1.1.0"
+  },
+  "homepage": "https://github.com/Rudloff/viatcheslav",
+  "keywords": [
+    "Electron",
+    "Molotov.tv",
+    "television"
+  ],
+  "license": "GPL-3.0",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rudloff/viatcheslav.git"
+  },
+  "scripts": {
+    "start": "electron ."
+  }
 }
