@@ -32,7 +32,7 @@
     "url": "https://github.com/Rudloff/viatcheslav.git"
   },
   "scripts": {
-    "linux-run": "bash scripts/linux-run.sh",
+    "linux-run": "WIDEVINE_PATH=widevine/opt/google/chrome/libwidevinecdmadapter.so WIDEVINE_VERSION=1.4.8.903 npm start",
     "linux-setup": "bash scripts/linux-setup.sh",
     "start": "electron ."
   }
