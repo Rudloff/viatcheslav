@@ -25,7 +25,7 @@ You then need to run Viatcheslav like this:
 WIDEVINE_PATH=/path/to/widevinecdmadapter.plugin WIDEVINE_VERSION=wivedine.version npm start
 ```
 
-If you are on an x86_64 GNU/Linux system, you can also use these commands to automattically download and use Widevine:
+If you are on an x86_64 GNU/Linux system, you can also use these commands to automatically download and use Widevine:
 
 ```bash
 npm run linux-setup
