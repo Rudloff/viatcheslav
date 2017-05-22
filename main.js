@@ -41,19 +41,23 @@ function createWindow() {
     });
 }
 
-app.on('ready', createWindow);
+if (app) {
+    app.on('ready', createWindow);
 
-app.on('window-all-closed', function () {
-    if (process.platform !== 'darwin') {
-        app.quit();
-    }
-});
+    app.on('window-all-closed', function () {
+        if (process.platform !== 'darwin') {
+            app.quit();
+        }
+    });
 
-app.on('activate', function () {
-    if (mainWindow === null) {
-        createWindow();
-    }
-});
+    app.on('activate', function () {
+        if (mainWindow === null) {
+            createWindow();
+        }
+    });
 
-app.commandLine.appendSwitch('widevine-cdm-path', process.env.WIDEVINE_PATH);
-app.commandLine.appendSwitch('widevine-cdm-version', process.env.WIDEVINE_VERSION);
+    app.commandLine.appendSwitch('widevine-cdm-path', process.env.WIDEVINE_PATH);
+    app.commandLine.appendSwitch('widevine-cdm-version', process.env.WIDEVINE_VERSION);
+} else {
+    throw "Can't find Electron";
+}
