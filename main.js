@@ -23,6 +23,7 @@ function createWindow() {
     };
     session.defaultSession.webRequest.onBeforeSendHeaders(function (details, callback) {
         details.requestHeaders['X-Molotov-Agent'] = JSON.stringify(molotovAgent);
+        details.requestHeaders['DNT'] = '1';
         callback({cancel: false, requestHeaders: details.requestHeaders});
     });
 
