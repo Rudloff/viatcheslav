@@ -21,3 +21,9 @@ but for some reason, it requires a specific `X-Molotov-Agent` HTTP header to wor
 so we have to use an app that sends this header.
 
 Except for this header and a few other tweaks, this app is just a wrapper for [app.molotov.tv](https://app.molotov.tv/home).
+
+## Limitations
+
+* Google and Facebook login don't work, you need to login with your e-mail and password.
+* The fullscreen button does not work
+    but you can use the F11 key to get the same result.
