@@ -1,23 +1,10 @@
 /*jslint node: true*/
 'use strict';
 var electron = require('electron'),
-    widevine = require('electron-widevinecdm'),
-    os = require('os'),
-    molotovAgent = {
-        app_id: electron.app.getName(),
-        app_build: 1,
-        app_version_name: electron.app.getVersion(),
-        type: 'desktop',
-        os: process.platform,
-        os_version: os.type(),
-        manufacturer: os.type(),
-        model: os.type(),
-        brand: os.type(),
-        serial: 'foo'
-    };
+    widevine = require('electron-widevinecdm');
 
 function addHeaders(details, callback) {
-    details.requestHeaders['X-Molotov-Agent'] = JSON.stringify(molotovAgent);
+    details.requestHeaders['X-Molotov-Agent'] = JSON.stringify({app_build: 1});
     details.requestHeaders.DNT = '1';
     callback({cancel: false, requestHeaders: details.requestHeaders});
 }
