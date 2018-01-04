@@ -38,7 +38,7 @@ function createWindow() {
         }
     );
 
-    mainWindow.loadURL('http://app.molotov.tv/home');
+    mainWindow.loadURL('https://app.molotov.tv/home');
 
     mainWindow.on('closed', function () {
         mainWindow = null;
