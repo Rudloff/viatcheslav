@@ -1,21 +1,17 @@
 /*jslint node: true*/
 'use strict';
-var electron = require('electron');
-var widevine = require('electron-widevinecdm');
-var app = electron.app;
-var BrowserWindow = electron.BrowserWindow;
-var session = electron.session;
-var os = require('os');
+var electron = require('electron'),
+    widevine = require('electron-widevinecdm'),
+    os = require('os'),
+    mainWindow;
 
-var mainWindow;
-
-widevine.load(app);
+widevine.load(electron.app);
 
 function createWindow() {
     var molotovAgent = {
-        app_id: app.getName(),
+        app_id: electron.app.getName(),
         app_build: 1,
-        app_version_name: app.getVersion(),
+        app_version_name: electron.app.getVersion(),
         type: 'desktop',
         os: process.platform,
         os_version: os.type(),
@@ -24,13 +20,13 @@ function createWindow() {
         brand: os.type(),
         serial: 'foo'
     };
-    session.defaultSession.webRequest.onBeforeSendHeaders(function (details, callback) {
+    electron.session.defaultSession.webRequest.onBeforeSendHeaders(function (details, callback) {
         details.requestHeaders['X-Molotov-Agent'] = JSON.stringify(molotovAgent);
         details.requestHeaders.DNT = '1';
         callback({cancel: false, requestHeaders: details.requestHeaders});
     });
 
-    mainWindow = new BrowserWindow(
+    mainWindow = new electron.BrowserWindow(
         {
             webPreferences: {
                 plugins: true
@@ -45,16 +41,16 @@ function createWindow() {
     });
 }
 
-if (app) {
-    app.on('ready', createWindow);
+if (electron.app) {
+    electron.app.on('ready', createWindow);
 
-    app.on('window-all-closed', function () {
+    electron.app.on('window-all-closed', function () {
         if (process.platform !== 'darwin') {
-            app.quit();
+            electron.app.quit();
         }
     });
 
-    app.on('activate', function () {
+    electron.app.on('activate', function () {
         if (mainWindow === null) {
             createWindow();
         }
