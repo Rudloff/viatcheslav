@@ -1,12 +1,15 @@
 /*jslint node: true*/
 'use strict';
 var electron = require('electron');
+var widevine = require('electron-widevinecdm');
 var app = electron.app;
 var BrowserWindow = electron.BrowserWindow;
 var session = electron.session;
 var os = require('os');
 
 var mainWindow;
+
+widevine.load(app);
 
 function createWindow() {
     var molotovAgent = {
@@ -57,8 +60,6 @@ if (app) {
         }
     });
 
-    app.commandLine.appendSwitch('widevine-cdm-path', process.env.WIDEVINE_PATH);
-    app.commandLine.appendSwitch('widevine-cdm-version', process.env.WIDEVINE_VERSION);
 } else {
     throw "Can't find Electron";
 }

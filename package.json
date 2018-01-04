@@ -11,7 +11,8 @@
     "url": "https://github.com/Rudloff/viatcheslav/issues"
   },
   "dependencies": {
-    "electron": "~1.4.5"
+    "electron": "~1.7.10",
+    "electron-widevinecdm": "~5.0.2"
   },
   "devDependencies": {
     "grunt": "~1.0.1",
@@ -32,8 +33,6 @@
     "url": "https://github.com/Rudloff/viatcheslav.git"
   },
   "scripts": {
-    "linux-run": "WIDEVINE_PATH=widevine/opt/google/chrome/libwidevinecdmadapter.so WIDEVINE_VERSION=1.4.8.1029 electron .",
-    "linux-setup": "scripts/linux-setup.sh",
     "start": "electron ."
   }
 }
