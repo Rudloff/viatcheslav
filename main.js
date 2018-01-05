@@ -1,32 +1,18 @@
 /*jslint node: true*/
 'use strict';
-var electron = require('electron');
-var app = electron.app;
-var BrowserWindow = electron.BrowserWindow;
-var session = electron.session;
-var os = require('os');
+var electron = require('electron'),
+    widevine = require('electron-widevinecdm');
 
-var mainWindow;
+function addHeaders(details, callback) {
+    details.requestHeaders['X-Molotov-Agent'] = JSON.stringify({app_build: 1});
+    details.requestHeaders.DNT = '1';
+    callback({cancel: false, requestHeaders: details.requestHeaders});
+}
 
 function createWindow() {
-    var molotovAgent = {
-        app_id: app.getName(),
-        app_build: 1,
-        app_version_name: app.getVersion(),
-        type: 'desktop',
-        os: process.platform,
-        os_version: os.type(),
-        manufacturer: os.type(),
-        model: os.type(),
-        brand: os.type(),
-        serial: 'foo'
-    };
-    session.defaultSession.webRequest.onBeforeSendHeaders(function (details, callback) {
-        details.requestHeaders['X-Molotov-Agent'] = JSON.stringify(molotovAgent);
-        callback({cancel: false, requestHeaders: details.requestHeaders});
-    });
+    electron.session.defaultSession.webRequest.onBeforeSendHeaders(addHeaders);
 
-    mainWindow = new BrowserWindow(
+    var mainWindow = new electron.BrowserWindow(
         {
             webPreferences: {
                 plugins: true
@@ -34,26 +20,13 @@ function createWindow() {
         }
     );
 
-    mainWindow.loadURL('http://app.molotov.tv/home');
-
-    mainWindow.on('closed', function () {
-        mainWindow = null;
-    });
+    mainWindow.loadURL('https://app.molotov.tv/home');
 }
 
-app.on('ready', createWindow);
+if (electron.app) {
+    widevine.load(electron.app);
 
-app.on('window-all-closed', function () {
-    if (process.platform !== 'darwin') {
-        app.quit();
-    }
-});
-
-app.on('activate', function () {
-    if (mainWindow === null) {
-        createWindow();
-    }
-});
-
-app.commandLine.appendSwitch('widevine-cdm-path', process.env.WIDEVINE_PATH);
-app.commandLine.appendSwitch('widevine-cdm-version', process.env.WIDEVINE_VERSION);
+    electron.app.on('ready', createWindow);
+} else {
+    throw "Can't find Electron";
+}

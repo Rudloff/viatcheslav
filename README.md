@@ -14,20 +14,16 @@ npm install
 npm start
 ```
 
-### Video playback
+## Why this app
 
-In order to play DRM-protected videos, we need the Widevine plugin but because it is not FOSS we can't include it in the repository.
-The Electron documentation has [an article that explains how to get the Widevine plugin](https://github.com/electron/electron/blob/master/docs/tutorial/using-widevine-cdm-plugin.md).
+Molotov.tv could theoretically work in a normal web browser (with Widevine)
+but for some reason, it requires a specific `X-Molotov-Agent` HTTP header to work
+so we have to use an app that sends this header.
 
-You then need to run Viatcheslav like this:
+Except for this header and a few other tweaks, this app is just a wrapper for [app.molotov.tv](https://app.molotov.tv/home).
 
-```bash
-WIDEVINE_PATH=/path/to/widevinecdmadapter.plugin WIDEVINE_VERSION=wivedine.version npm start
-```
+## Limitations
 
-If you are on an x86_64 GNU/Linux system, you can also use these commands to automatically download and use Widevine:
-
-```bash
-npm run linux-setup
-npm run linux-run
-```
+* Google and Facebook login don't work, you need to login with your e-mail and password.
+* The fullscreen button does not work
+    but you can use the F11 key to get the same result.
