@@ -11,7 +11,7 @@
     "url": "https://github.com/Rudloff/viatcheslav/issues"
   },
   "dependencies": {
-    "electron": "~1.7.10",
+    "electron": "~1.8.2",
     "electron-widevinecdm": "~5.0.2"
   },
   "devDependencies": {
