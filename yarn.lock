@@ -517,9 +517,9 @@ electron-download@^3.0.1:
     semver "^5.3.0"
     sumchecker "^1.2.0"
 
-electron-widevinecdm@~5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/electron-widevinecdm/-/electron-widevinecdm-5.0.2.tgz#bce5b565cf4e0b9a0f8dd23e15cd7bbcc8c54047"
+electron-widevinecdm@~6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/electron-widevinecdm/-/electron-widevinecdm-6.0.0.tgz#bb49d6f2c4a1b052e5d120330a1c2f1e77347ed8"
   dependencies:
     archiver-promise "^1.0.0"
     extract-zip "^1.6.5"
