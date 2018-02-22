@@ -1,7 +1,7 @@
 {
   "name": "viatcheslav",
   "description": "Open-source client for Molotov.tv",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": {
     "name": "Pierre Rudloff",
     "email": "contact@rudloff.pro",
@@ -11,15 +11,16 @@
     "url": "https://github.com/Rudloff/viatcheslav/issues"
   },
   "dependencies": {
-    "electron": "~1.7.10",
-    "electron-widevinecdm": "~5.0.2"
+    "electron": "~1.8.2",
+    "electron-widevinecdm": "~6.0.0"
   },
   "devDependencies": {
+    "doxdox": "~2.0.3",
     "grunt": "~1.0.1",
     "grunt-fixpack": "~0.1.0",
     "grunt-jslint": "~1.1.14",
     "grunt-jsonlint": "~1.1.0",
-    "markdownlint-cli": "^0.6.0"
+    "markdownlint-cli": "~0.7.1"
   },
   "homepage": "https://github.com/Rudloff/viatcheslav",
   "keywords": [

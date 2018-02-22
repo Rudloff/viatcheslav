@@ -2,8 +2,6 @@
 module.exports = function (grunt) {
     'use strict';
 
-    grunt.loadNpmTasks('grunt-jslint');
-
     grunt.initConfig({
         jslint: {
             Gruntfile: {
@@ -28,6 +26,7 @@ module.exports = function (grunt) {
         }
     });
 
+    grunt.loadNpmTasks('grunt-jslint');
     grunt.loadNpmTasks('grunt-jsonlint');
     grunt.loadNpmTasks('grunt-fixpack');
     grunt.registerTask('lint', ['jslint', 'fixpack', 'jsonlint']);
