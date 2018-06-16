@@ -11,7 +11,7 @@ var electron = require('electron'),
  * @return {Void}
  */
 function addHeaders(details, callback) {
-    details.requestHeaders['X-Molotov-Agent'] = JSON.stringify({app_build: 1});
+    details.requestHeaders['X-Molotov-Agent'] = JSON.stringify({app_build: 3, app_id: 'electron_app'});
     details.requestHeaders.DNT = '1';
     callback({cancel: false, requestHeaders: details.requestHeaders});
 }
