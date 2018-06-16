@@ -25,7 +25,7 @@ function createWindow() {
 
     var mainWindow = new electron.BrowserWindow(
         {
-            icon: __dirname + '/icon.png',
+            icon: 'icon.png',
             webPreferences: {
                 plugins: true
             }
