@@ -1,7 +1,8 @@
 /*jslint node: true*/
 'use strict';
 var electron = require('electron'),
-    widevine = require('electron-widevinecdm');
+    widevine = require('electron-widevinecdm'),
+    mainWindow;
 
 /**
  * Add the X-Molotov-Agent header required by Molotov.tv.
@@ -17,13 +18,26 @@ function addHeaders(details, callback) {
 }
 
 /**
+ * Inject CSS in the main window.
+ * @return {Void}
+ */
+function addCss() {
+    var size = mainWindow.getSize();
+    mainWindow.webContents.insertCSS('#app { max-width: 100vw; }');
+
+    // Hacky way to force the JS to recalculate the grid.
+    mainWindow.setSize(size[0] + 1, size[1] + 1);
+    mainWindow.setSize(size[0], size[1]);
+}
+
+/**
  * Create the main window.
  * @return {Void}
  */
 function createWindow() {
     electron.session.defaultSession.webRequest.onBeforeSendHeaders(addHeaders);
 
-    var mainWindow = new electron.BrowserWindow(
+    mainWindow = new electron.BrowserWindow(
         {
             icon: 'icon.png',
             webPreferences: {
@@ -31,6 +45,8 @@ function createWindow() {
             }
         }
     );
+
+    mainWindow.webContents.on('did-finish-load', addCss);
 
     mainWindow.loadURL('https://app.molotov.tv/home');
 }
