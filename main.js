@@ -41,6 +41,7 @@ function createWindow() {
         {
             icon: 'icon.png',
             webPreferences: {
+                nodeIntegration: false,
                 plugins: true
             }
         }
