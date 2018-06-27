@@ -22,12 +22,8 @@ function addHeaders(details, callback) {
  * @return {Void}
  */
 function addCss() {
-    var size = mainWindow.getSize();
-    mainWindow.webContents.insertCSS('#app { max-width: 100vw; }');
-
-    // Hacky way to force the JS to recalculate the grid.
-    mainWindow.setSize(size[0] + 1, size[1] + 1);
-    mainWindow.setSize(size[0], size[1]);
+    // We need fix or Molotov CSS breaks.
+    mainWindow.webContents.insertCSS('body, html { width: 100%; }');
 }
 
 /**
@@ -47,7 +43,7 @@ function createWindow() {
         }
     );
 
-    mainWindow.webContents.on('did-finish-load', addCss);
+    mainWindow.webContents.on('dom-ready', addCss);
 
     mainWindow.loadURL('https://app.molotov.tv/home');
 }
