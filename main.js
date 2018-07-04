@@ -1,7 +1,8 @@
 /*jslint node: true*/
 'use strict';
 var electron = require('electron'),
-    widevine = require('electron-widevinecdm');
+    widevine = require('electron-widevinecdm'),
+    mainWindow;
 
 /**
  * Add the X-Molotov-Agent header required by Molotov.tv.
@@ -10,10 +11,38 @@ var electron = require('electron'),
  * @param {Function} callback Function called with the new headers
  * @return {Void}
  */
-function addHeaders(details, callback) {
+function addRequestHeaders(details, callback) {
     details.requestHeaders['X-Molotov-Agent'] = JSON.stringify({app_build: 3, app_id: 'electron_app'});
     details.requestHeaders.DNT = '1';
     callback({cancel: false, requestHeaders: details.requestHeaders});
+}
+
+/**
+ * Add a Content-Security-Policy header in order to mitigate XSS attacks.
+ * This also helps disabling some tracking.
+ * @param {Object}   details  Request details
+ * @param {Function} callback Function called with the new headers
+ * @return {Void}
+ */
+function addResponseHeaders(details, callback) {
+    details.responseHeaders['Content-Security-Policy'] = [
+        "default-src 'self'; object-src 'none'; " +
+                "font-src 'self' fonts.gstatic.com maxcdn.bootstrapcdn.com; " +
+                "style-src 'self' 'unsafe-inline' fonts.googleapis.com maxcdn.bootstrapcdn.com; " +
+                "connect-src fapi.molotov.tv decision.molotov.tv *.akamaized.net lic.drmtoday.com; " +
+                "img-src 'self' fusion.molotov.tv images.molotov.tv; " +
+                "media-src blob:"
+    ];
+    callback({cancel: false, responseHeaders: details.responseHeaders});
+}
+
+/**
+ * Inject CSS in the main window.
+ * @return {Void}
+ */
+function addCss() {
+    // We need fix or Molotov CSS breaks.
+    mainWindow.webContents.insertCSS('body, html { width: 100%; }');
 }
 
 /**
@@ -21,16 +50,20 @@ function addHeaders(details, callback) {
  * @return {Void}
  */
 function createWindow() {
-    electron.session.defaultSession.webRequest.onBeforeSendHeaders(addHeaders);
+    electron.session.defaultSession.webRequest.onBeforeSendHeaders(addRequestHeaders);
+    electron.session.defaultSession.webRequest.onHeadersReceived(addResponseHeaders);
 
-    var mainWindow = new electron.BrowserWindow(
+    mainWindow = new electron.BrowserWindow(
         {
-            icon: __dirname + '/icon.png',
+            icon: 'icon.png',
             webPreferences: {
+                nodeIntegration: false,
                 plugins: true
             }
         }
     );
+
+    mainWindow.webContents.on('dom-ready', addCss);
 
     mainWindow.loadURL('https://app.molotov.tv/home');
 }
