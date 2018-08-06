@@ -42,7 +42,7 @@ function addResponseHeaders(details, callback) {
  */
 function addCss() {
     // We need fix or Molotov CSS breaks.
-    mainWindow.webContents.insertCSS('body, html { width: 100%; }');
+    mainWindow.webContents.insertCSS('body, html { width: 100%; } ._2TXpJ { margin-top: -40px !important; }; ');
 }
 
 /**
