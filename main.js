@@ -31,6 +31,8 @@ function addResponseHeaders(details, callback) {
                 "style-src 'self' 'unsafe-inline' fonts.googleapis.com maxcdn.bootstrapcdn.com; " +
                 "connect-src fapi.molotov.tv decision.molotov.tv *.akamaized.net lic.drmtoday.com; " +
                 "img-src 'self' fusion.molotov.tv images.molotov.tv; " +
+                "frame-src 'self' www.molotov.tv; " +
+                "script-src 'self' 'unsafe-inline'; " +
                 "media-src blob:"
     ];
     callback({cancel: false, responseHeaders: details.responseHeaders});
