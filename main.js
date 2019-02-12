@@ -1,7 +1,6 @@
 /*jslint node: true*/
 'use strict';
 var electron = require('electron'),
-    widevine = require('electron-widevinecdm'),
     mainWindow;
 
 /**
@@ -71,9 +70,7 @@ function createWindow() {
 }
 
 if (electron.app) {
-    widevine.load(electron.app);
-
-    electron.app.on('ready', createWindow);
+    electron.app.on('widevine-ready', createWindow);
 } else {
     throw "Can't find Electron";
 }

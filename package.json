@@ -11,8 +11,7 @@
     "url": "https://github.com/Rudloff/viatcheslav/issues"
   },
   "dependencies": {
-    "electron": "~2.0.3",
-    "electron-widevinecdm": "~7.0.0"
+    "electron": "https://github.com/castlabs/electron-releases#v4.0.4-wvvmp"
   },
   "devDependencies": {
     "doxdox": "~2.0.3",
