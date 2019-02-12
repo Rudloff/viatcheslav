@@ -19,7 +19,7 @@
     "grunt-fixpack": "~0.1.0",
     "grunt-jslint": "~1.1.14",
     "grunt-jsonlint": "~1.1.0",
-    "markdownlint-cli": "~0.10.0"
+    "markdownlint-cli": "~0.13.0"
   },
   "homepage": "https://github.com/Rudloff/viatcheslav",
   "keywords": [
