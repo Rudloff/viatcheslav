@@ -1,7 +1,6 @@
 /*jslint node: true*/
 'use strict';
 var electron = require('electron'),
-    widevine = require('electron-widevinecdm'),
     mainWindow;
 
 /**
@@ -31,6 +30,8 @@ function addResponseHeaders(details, callback) {
                 "style-src 'self' 'unsafe-inline' fonts.googleapis.com maxcdn.bootstrapcdn.com; " +
                 "connect-src fapi.molotov.tv decision.molotov.tv *.akamaized.net lic.drmtoday.com; " +
                 "img-src 'self' fusion.molotov.tv images.molotov.tv; " +
+                "frame-src 'self' www.molotov.tv; " +
+                "script-src 'self' 'unsafe-inline'; " +
                 "media-src blob:"
     ];
     callback({cancel: false, responseHeaders: details.responseHeaders});
@@ -42,7 +43,7 @@ function addResponseHeaders(details, callback) {
  */
 function addCss() {
     // We need fix or Molotov CSS breaks.
-    mainWindow.webContents.insertCSS('body, html { width: 100%; }');
+    mainWindow.webContents.insertCSS('body, html { width: 100%; } ._2TXpJ { margin-top: -40px !important; }; ');
 }
 
 /**
@@ -69,9 +70,7 @@ function createWindow() {
 }
 
 if (electron.app) {
-    widevine.load(electron.app);
-
-    electron.app.on('ready', createWindow);
+    electron.app.on('widevine-ready', createWindow);
 } else {
     throw "Can't find Electron";
 }
