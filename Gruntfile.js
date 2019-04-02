@@ -9,6 +9,9 @@ module.exports = function (grunt) {
             },
             main: {
                 src: 'main.js'
+            },
+            js: {
+                src: 'js/*.js'
             }
         },
         jsonlint: {

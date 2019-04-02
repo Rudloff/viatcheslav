@@ -59,7 +59,8 @@ function createWindow() {
             icon: 'icon.png',
             webPreferences: {
                 nodeIntegration: false,
-                plugins: true
+                plugins: true,
+                preload: __dirname + '/js/preload.js'
             }
         }
     );
