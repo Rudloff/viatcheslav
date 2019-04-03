@@ -43,7 +43,7 @@ function addResponseHeaders(details, callback) {
  */
 function addCss() {
     // We need fix or Molotov CSS breaks.
-    mainWindow.webContents.insertCSS('body, html { width: 100%; } ._2TXpJ { margin-top: -40px !important; }; ');
+    mainWindow.webContents.insertCSS('body, html { width: 100%; } ._2TXpJ { margin-top: -40px !important; } ._1TB-Z { display: none !important; } .qXpjY { height: 100% !important; margin-top: 0 !important; }');
 }
 
 /**
