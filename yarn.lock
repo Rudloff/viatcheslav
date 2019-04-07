@@ -1061,14 +1061,6 @@ isstream@~0.1.2:
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
-js-yaml@~3.11.0:
-  version "3.11.0"
-  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.11.0.tgz#597c1a8bd57152f26d622ce4117851a51f5ebaef"
-  integrity sha512-saJstZWv7oNeOyBh3+Dx1qWzhW0+e6/8eDzo7p5rDFqxntSztloLtuKu+Ejhtq82jsilwOIZYsCz+lIjthg1Hw==
-  dependencies:
-    argparse "^1.0.7"
-    esprima "^4.0.0"
-
 js-yaml@~3.13.0:
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
@@ -1272,26 +1264,26 @@ markdown-it@~7.0.0:
     mdurl "^1.0.1"
     uc.micro "^1.0.1"
 
-markdownlint-cli@~0.13.0:
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/markdownlint-cli/-/markdownlint-cli-0.13.0.tgz#af1d29e5d8b434256c451c81b87dff1c218844cb"
-  integrity sha512-DCjhAIb4EDny6xdjOcu2Rckp1sOSktQU9PjRN2pK9p0Azby7YYBqZXO8I+vhv5XKd2Pk0IbbOhyZ/+zjfH4oww==
+markdownlint-cli@~0.15.0:
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/markdownlint-cli/-/markdownlint-cli-0.15.0.tgz#12a820d3745a955cff2877157d132248e9d3802b"
+  integrity sha512-UTstPEXMix4CO1RIgjX3Bd1M+xklc4KXMP2309Zfp5y3UJOASWLSXnTnzkztBn5aZRt7bzLZmxTaR8M4J8cbbQ==
   dependencies:
     commander "~2.9.0"
     deep-extend "~0.5.1"
     get-stdin "~5.0.1"
     glob "~7.1.2"
-    js-yaml "~3.11.0"
+    js-yaml "~3.13.0"
     lodash.differencewith "~4.5.0"
     lodash.flatten "~4.4.0"
-    markdownlint "~0.11.0"
+    markdownlint "~0.13.0"
     minimatch "~3.0.4"
     rc "~1.2.7"
 
-markdownlint@~0.11.0:
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/markdownlint/-/markdownlint-0.11.0.tgz#3858bbdbc1ab78abf0c098d841c72b63dd3206a0"
-  integrity sha512-wE5WdKD6zW2DQaPQ5TFBTXh5j76DnWd/IFffnDQgHmi6Y61DJXBDfLftZ/suJHuv6cwPjM6gKw2GaRLJMOR+Mg==
+markdownlint@~0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/markdownlint/-/markdownlint-0.13.0.tgz#39ffd5ffbf1198c761a5ef3e28c195e5eb8dd669"
+  integrity sha512-mGeDEbvmRk2T8f043lK7Lhcdi7mr68hQqGsJCS4p52uvEyOLym28s3r7GA6aaFQFtwT0MfFaJ/7Ex4n/HVPUnQ==
   dependencies:
     markdown-it "8.4.2"
 
