@@ -17,8 +17,47 @@ function fixScripts() {
     }
 }
 
+function mockFunction() {
+    'use strict';
+
+    return;
+}
+
+function getPlatform() {
+    'use strict';
+    return navigator.platform;
+}
+
+function getCurrentWindow() {
+    'use strict';
+
+    return {
+        on: mockFunction,
+        isFullScreen: mockFunction,
+        isMaximized: mockFunction,
+        isFocused: mockFunction,
+        getManifestUri: mockFunction,
+        reload: mockFunction
+    };
+}
+
 window.molotov = {
     app: {
+        platform: navigator.platform
+    }
+};
+
+window.__os = {
+    platform: getPlatform
+};
+
+window.__electron = {
+    ipcRenderer: {
+        send: mockFunction,
+        on: mockFunction
+    },
+    remote: {
+        getCurrentWindow: getCurrentWindow
     }
 };
 
