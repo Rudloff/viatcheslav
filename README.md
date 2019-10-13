@@ -2,6 +2,9 @@
 
 Viatcheslav is an open source client for Molotov.tv based on Electron.
 
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+I don't use Molotov anymore and this app is hard to maintain because it easily breaks when Molotov changes something.
+
 ## Install
 
 ```bash
